@@ -16,7 +16,9 @@ function App() {
 
   return (
     <>
-      <Questions allQuestions={questions} />
+      <main>
+        <Questions allQuestions={questions} />
+      </main>
     </>
   );
 }
