@@ -5,6 +5,7 @@ import { Questions } from "./Questions";
 
 function App() {
   const [questions, setQuestions] = useState([]);
+  const [activeID, setActiveId] = useState(null);
   useEffect(() => {
     function getAlldata() {
       setQuestions(() => {
@@ -14,10 +15,18 @@ function App() {
     getAlldata();
   }, []);
 
+  function toggelQuestion(id) {
+    setActiveId(id !== activeID ? id : null);
+  }
+
   return (
     <>
       <main>
-        <Questions allQuestions={questions} />
+        <Questions
+          allQuestions={questions}
+          toggleid={toggelQuestion}
+          activeID={activeID}
+        />
       </main>
     </>
   );
